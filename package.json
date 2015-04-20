@@ -1,0 +1,14 @@
+{
+  "name": "rest-mochad",
+  "version": "0.0.1",
+  "description": "A REST API for mochad.",
+  "main": "app.js",
+  "author": "Evan Coleman",
+  "license": "MIT",
+  "dependencies": {
+    "express": ">= 0.0.0",
+    "net": ">= 0.0.0",
+    "body-parser": ">= 0.0.0",
+    "queue-async": ">= 0.0.0"
+  }
+}
