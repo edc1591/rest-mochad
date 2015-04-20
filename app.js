@@ -19,23 +19,20 @@ function queueCommand(command) {
 }
 
 var client = net.connect(1099, function(){
-  app.post('/x10/power', function (req, res) {
-    var location = req.param('house_code') + req.param('device_id');
-    var method = req.param('protocol'); // rf or pl
+  app.put('/x10/:device/power/:command', function (req, res) {
+    var method = req.query.protocol; // rf or pl
     console.log('Queuing Power Event');
-    var command = req.param('value') == 'true' ? 'on' : 'off';
-    var ncCommand = method + ' ' + location + ' ' + command + '\n';
+    var ncCommand = method + ' ' + req.params.device + ' ' + req.params.command + '\n';
     queueCommand(ncCommand);
     res.send('OK');
   });
 
-  app.post('/x10/brightness', function (req, res) {
-    var location = req.param('house_code') + req.param('device_id');
-    if (req.param('protocol') == "pl") {
+  app.put('/x10/:device/brightness', function (req, res) {
+    if (req.query.protocol == "pl") {
       console.log('Queuing Brightness Event');
-      var command = 'xdim';//req.param('value') == 'true' ? 'on' : 'off';
-      var val = Math.round((parseInt(req.param('value')) / 100) * 70);
-      var ncCommand = 'pl ' + location + ' ' + command + ' ' + val + '\n';
+      var command = 'xdim';
+      var val = Math.round((parseInt(req.query.value) / 100) * 70);
+      var ncCommand = 'pl ' + req.params.device + ' ' + command + ' ' + val + '\n';
       queueCommand(ncCommand);
     }
     res.send('OK');
