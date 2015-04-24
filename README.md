@@ -8,17 +8,17 @@ These instructions are written for a Raspberry Pi but the process should be more
 
 1. Install [mochad](http://sourceforge.net/projects/mochad/)
     
-    $ sudo apt-get install libusb-1.0-0-dev
-    $ wget -O mochad.tgz http://sourceforge.net/projects/mochad/files/latest/download
-    $ tar xf mochad.tgz
-    $ cd mochad*
-    $ ./configure
-    $ make
-    $ sudo make install
+        $ sudo apt-get install libusb-1.0-0-dev
+        $ wget -O mochad.tgz http://sourceforge.net/projects/mochad/files/latest/download
+        $ tar xf mochad.tgz
+        $ cd mochad*
+        $ ./configure
+        $ make
+        $ sudo make install
 
 2. Install node dependencies
 
-    $ npm install
+        $ npm install
 
 # Usage
 
