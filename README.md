@@ -25,3 +25,26 @@ These instructions are written for a Raspberry Pi but the process should be more
 This spawns a server running on port 3000.
 
     $ node app.js
+
+## API
+
+    PUT /x10/{device}/power/{command}
+    
+Sets the power state of a device.
+
+**Params:**
+
+* `device` *(Required)* The house code and ID of the device. For example, `C2`.
+* `command` *(Required)* The power command to send. Valid values are `on` and `off`.
+* `protocol` *(Required)* The protocol with which to communicate with the module. Possible values are `rf` or `pl`. See the mochad documentation for more information.
+
+
+    PUT /x10/{device}/brightness
+
+Sets the brightness value of a device.
+
+**Params:**
+
+* `device` *(Required)* The house code and ID of the device. For example, `C2`.
+* `value` *(Required)* The brightness value to send between 0 and 100.
+* `protocol` *(Required)* The protocol with which to communicate with the module. Possible values are `rf` or `pl`. See the mochad documentation for more information. 
