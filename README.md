@@ -38,6 +38,7 @@ Sets the power state of a device.
 * `command` *(Required)* The power command to send. Valid values are `on` and `off`.
 * `protocol` *(Required)* The protocol with which to communicate with the module. Possible values are `rf` or `pl`. See the mochad documentation for more information.
 
+-
 
     PUT /x10/{device}/brightness
 
