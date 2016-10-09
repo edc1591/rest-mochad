@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded({
 
 function queueCommand(command) {
   queue.defer(function (callback) {
+    console.log(command);
+    client.write(command);
     setTimeout(function () {
-      console.log(command);
-      client.write(command);
       callback(null, null);
     }, 250);
   });
